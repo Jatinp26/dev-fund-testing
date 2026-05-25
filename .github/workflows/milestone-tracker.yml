@@ -1,4 +1,4 @@
-name: Create Milestone Tracking Issues
+name: Create Milestone Tracking Issues update
 
 on:
   pull_request:

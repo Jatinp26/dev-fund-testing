@@ -1,4 +1,4 @@
-name: Create Milestone Tracking Issues update
+name: Create Milestone Tracking Issues
 
 on:
   pull_request:
@@ -149,7 +149,7 @@ jobs:
               const childIssue = await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: milestone.title,
+                title: `PR #${pr.number} — ${milestone.title}`,
                 body: `Parent: #${parentIssue.data.number}\nPR: ${pr.html_url}\n\n${body}`,
                 labels: ['milestone-tracking']
               });
@@ -169,7 +169,7 @@ jobs:
               const childIssue = await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: milestone.title,
+                title: `PR #${pr.number} — ${milestone.title}`,
                 body: `Parent: #${linkTo}\nPR: ${pr.html_url}\n\n${body}`,
                 labels: ['milestone-tracking']
               });

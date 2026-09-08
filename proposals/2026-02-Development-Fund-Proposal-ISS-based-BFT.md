@@ -8,7 +8,7 @@
 | Status | Approved |
 | Created | 2026-02-15 |
 | Approved | 2026-03-23 |
-
+RFP: Developer Tooling, dpm components
 
 ---
 
@@ -27,14 +27,6 @@ Digital Asset expects that when implemented on the Global Synchronizer, **this w
 As the Canton Network grows in participants, transaction volume, and application diversity, the Global Synchronizer's transaction throughput becomes the primary constraint on network scale. The current CometBFT ordering architecture processes transactions through a single-leader consensus path, creating a fundamental bottleneck that cannot be overcome by incremental optimization alone.
 
 This throughput limitation creates several critical issues for the Canton Network's continued growth:
-
-**Single-Leader Bottleneck:** In traditional BFT consensus (e.g., PBFT, HotStuff), a single leader proposes blocks containing full transaction data. Both the leader's outbound bandwidth and the consensus protocol's communication overhead become throughput ceilings. As transaction volume grows, this ceiling becomes the binding constraint on network utility.
-
-**Consensus-Bound Dissemination:** When transaction data is disseminated as part of the consensus protocol, the size of proposals directly impacts consensus latency. Larger blocks mean longer rounds; longer rounds mean lower throughput. This coupling forces an undesirable trade-off between block size and confirmation time.
-
-**Underutilized Ordering  Resources:** In a single-leader design, only one Super Validator is actively producing blocks at any given time. The remaining Super Validators participate in voting but their compute, bandwidth, and storage resources are substantially underutilized. As the validator set grows with network adoption, this inefficiency becomes more pronounced.
-
-**Governance Fragmentation:** Without tight integration between BFT ordering governance and Canton's existing topology management, operational changes such as adding or removing sequencers require out-of-band coordination, manual intervention, and risk of misconfiguration. This creates operational fragility that is inconsistent with the Canton Network's maturity trajectory.
 
 # Specification
 

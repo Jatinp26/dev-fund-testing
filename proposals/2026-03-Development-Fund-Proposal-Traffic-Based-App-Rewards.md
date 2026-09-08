@@ -8,7 +8,7 @@
 | Status | Proposal |
 | Created | 2026-02-25 |
 | Implements | CIP-0104: Traffic-Based App Rewards |
-
+RFP: Developer Tooling, dpm components
 ---
 
 # Abstract
